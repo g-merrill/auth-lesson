@@ -1,0 +1,36 @@
+{
+  "name": "auth-lesson",
+  "version": "0.0.1",
+  "author": "gabriel@cabrejas.net",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codepath/auth-lesson.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "fkill :9000 :5173 -s -f && concurrently --handle-input \"npm:backend\" \"npm:frontend\"",
+    "frontend": "cd frontend && npm run dev",
+    "backend": "nodemon index.js",
+    "start": "node index.js",
+    "postinstall": "cd frontend && npm install"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "frontend",
+      "node_modules",
+      "dist",
+      ".vite"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "fkill-cli": "^8.0.0",
+    "http-proxy-middleware": "^3.0.5",
+    "nodemon": "^3.1.10"
+  }
+}

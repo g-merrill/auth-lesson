@@ -1,0 +1,49 @@
+body {
+  font-family: sans-serif;
+  border: 1rem solid #00d4585c;
+  color: #004b1ffd;
+}
+
+html,
+body,
+#root,
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  overflow-y: auto;
+  width: 100%;
+}
+
+h1, h2, h3 {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+a {
+    color: #004b1ffd;
+}
+a.active {
+    color: orange;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+}
+
+.button-group, .emoji {
+  display: flex;
+  justify-content: center;
+}
+
+.emoji {
+  font-size: 5rem;
+}
