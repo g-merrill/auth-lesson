@@ -12,7 +12,8 @@
     "frontend": "cd frontend && npm run dev",
     "backend": "nodemon index.js",
     "start": "node index.js",
-    "postinstall": "cd frontend && npm install"
+    "postinstall": "cd frontend && npm install",
+    "build": "npm i && cd frontend && npm i && npm run build"
   },
   "nodemonConfig": {
     "ignore": [
