@@ -47,3 +47,7 @@ nav {
 .emoji {
   font-size: 5rem;
 }
+
+.hash:last-child {
+  font-weight: bold;
+}
