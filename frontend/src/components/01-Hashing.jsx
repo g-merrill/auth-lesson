@@ -3,7 +3,7 @@ import md5 from 'md5'
 
 export default function Hashing() {
   const [hash, setHash] = useState('')
-  // const inputRef = useRef(null)
+  const inputRef = useRef(null)
   useEffect(() => {
     md5('something')
   }, [])
