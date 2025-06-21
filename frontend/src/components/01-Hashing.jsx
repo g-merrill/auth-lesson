@@ -13,7 +13,7 @@ export default function Hashing() {
   return (
     <div className="container">
       <h2>Hashing</h2>
-      <input placeholder='type something' />
+      <input ref={inputRef} placeholder='type something' />
       <button onClick={onHash}>Hash It!</button>
       <div>The hash: {hash}</div>
     </div>
