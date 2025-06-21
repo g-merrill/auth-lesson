@@ -19,20 +19,19 @@ app.get('/api/todos', (req, res) => {
 })
 
 app.delete('/api/todos/:id', (req, res) => {
-  console.log('dis hapenz')
   const { id } = req.params
   todos = todos.filter(todo => todo.id != id)
   res.json(todos)
 })
 
 if (process.env.RENDER) {
-  console.log('RUNNING IN PROD')
+  console.log('running in PROD')
   app.use(express.static(path.join(__dirname, 'frontend', 'dist')))
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
   })
 } else {
-  console.log('RUNNING IN DEV')
+  console.log('running in DEV')
   app.use(
     '/',
     createProxyMiddleware({
@@ -45,9 +44,10 @@ if (process.env.RENDER) {
 
 app.listen(PORT, () => {
   console.log(
-    chalk.greenBright.bold('✅ Auth Lesson Ready. Let\'s go! =====> ') +
+    chalk.greenBright.bold('\n✅ Auth Lesson Ready. Let\'s go! ===> ') +
     chalk.cyanBright(`Listening on `) +
-    chalk.yellowBright(`http://localhost:${PORT} `) +
-    '🚀🔥'
+    chalk.yellowBright('http://localhost') +
+    chalk.yellowBright.bold(`:${PORT} `) +
+    chalk.greenBright.bold(' <=== 🚀🔥\n')
   )
 })
