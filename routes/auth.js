@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { hashPassword, verifyPassword } = require('./argon')
+const { hashPassword, verifyPassword } = require('./bcrypt')
 
 let id = 0
 const getId = () => ++id
@@ -21,7 +21,7 @@ router.post('/api/auth/register', async (req, res, next) => {
 router.post('/api/auth/login', async (req, res, next) => {
   const { username, password: plainPassword } = req.body
   const user = users.find(u => u.username === username)
-  if (!user || !(await verifyPassword(user.password, plainPassword))) {
+  if (!user || !(await verifyPassword(plainPassword, user.password))) {
     next({ status: 401, message: 'Invalid credentials' })
   } else {
     req.session.user = user
