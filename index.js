@@ -29,6 +29,7 @@ app.use(cookieRouter)
 app.use(authRouter)
 app.use(todosRouter)
 
+// Both API and static assets (the React app) served from same origin
 if (process.env.RENDER) {
   console.log('running in PROD')
   app.use(express.static(path.join(__dirname, 'frontend', 'dist')))
@@ -46,6 +47,13 @@ if (process.env.RENDER) {
     })
   )
 }
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  const { message, status = 500 } = err
+  console.log(message)
+  res.status(status).json({ message })
+})
 
 const PORT = process.env.PORT || 9000
 app.listen(PORT, () => {

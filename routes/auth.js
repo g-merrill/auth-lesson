@@ -41,11 +41,4 @@ router.post('/api/auth/logout', (req, res, next) => {
   })
 })
 
-// Error handling middleware
-router.use((err, req, res, next) => {
-  const { message, status = 500 } = err
-  console.log(message)
-  res.status(status).json({ message })
-})
-
 module.exports = router
