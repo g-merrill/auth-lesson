@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 
-export default function Register() {
+export default function Auth() {
   const [message, setMessage] = useState('')
   const userRef = useRef(null)
   const passRef = useRef(null)
@@ -23,11 +23,12 @@ export default function Register() {
   }
   return (
     <div className='container'>
-      <h2>{message}</h2>
+      <h2>Auth Screen</h2>
+      <h3>{message}</h3>
       <form onSubmit={onSubmit}>
-        <input ref={userRef} />
-        <input ref={passRef} />
-        <button name="register">Rgister</button>
+        <input placeholder="Type username" ref={userRef} />
+        <input placeholder="Type password" ref={passRef} />
+        <button name="register">Register</button>
         <button name="login">Login</button>
         <button name="logout">Logout</button>
       </form>

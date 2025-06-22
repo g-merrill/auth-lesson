@@ -14,7 +14,7 @@ router.post('/api/auth/register', async (req, res, next) => {
     const hash = await hashPassword(plainPassword)
     const newUser = { id: getId(), username, password: hash }
     users.push(newUser)
-    res.json({ message: `Hey ${username}, you registered successfully` })
+    res.json({ message: `✨ Hey ${username}, you registered successfully` })
   }
 })
 
@@ -25,7 +25,7 @@ router.post('/api/auth/login', async (req, res, next) => {
     next({ status: 401, message: 'Invalid credentials' })
   } else {
     req.session.user = user
-    res.json({ message: `Welcome back ${username}, have a cookie...` })
+    res.json({ message: `🍪 Welcome back ${username}, have a cookie...` })
   }
 })
 
@@ -36,7 +36,7 @@ router.post('/api/auth/logout', (req, res, next) => {
       next({ message: 'Logout failed' })
     } else {
       res.clearCookie('sessionId')
-      res.json({ message: 'Logged out' })
+      res.json({ message: '👋 Logged out' })
     }
   })
 })

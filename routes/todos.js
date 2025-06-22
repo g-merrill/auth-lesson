@@ -10,7 +10,7 @@ let todos = [
 
 router.get('/api/todos', (req, res, next) => {
   if (req.session.user) {
-    res.json({ message: "Here are your todos", data: todos })
+    res.json({ message: "📝 Here are your todos", data: todos })
   } else {
     next({ status: 401, message: "You can't have them. Please log in!" })
   }
@@ -19,7 +19,7 @@ router.get('/api/todos', (req, res, next) => {
 router.delete('/api/todos/:id', (req, res) => {
   const { id } = req.params
   todos = todos.filter(todo => todo.id != id)
-  res.json({ message: "Good job getting things done!", data: todos })
+  res.json({ message: "💪 Good job getting things done!", data: todos })
 })
 
 module.exports = router

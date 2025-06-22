@@ -52,7 +52,7 @@ if (process.env.RENDER) {
 app.use((err, req, res, next) => {
   const { message, status = 500 } = err
   console.log(message)
-  res.status(status).json({ message })
+  res.status(status).json({ message: '☠️ ' + message })
 })
 
 const PORT = process.env.PORT || 9000
