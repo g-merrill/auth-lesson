@@ -45,7 +45,6 @@ nav {
 }
 
 table {
-  /* width: 100%; */
   border-collapse: collapse;
   margin-top: 1rem;
   font-size: 0.95rem;
@@ -76,6 +75,7 @@ th {
 
 td {
   color: #333;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 tr:last-child {

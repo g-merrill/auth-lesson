@@ -6,7 +6,7 @@ export default function Hashing() {
   const inputRef = useRef(null)
 
   useEffect(() => {
-    console.log(hashes.at(-1))
+    console.log(md5('this is the end'))
   }, [hashes])
 
   const onHash = evt => {
@@ -19,11 +19,10 @@ export default function Hashing() {
     <div className="container">
       <h2>Hashing</h2>
       <form>
-        <label>
-          Value to Hash:
+        <div>
           <input ref={inputRef} placeholder='type something' />
           <button onClick={onHash}>Hash It!</button>
-        </label>
+        </div>
       </form>
       {hashes.length > 0 && (
         <table>
