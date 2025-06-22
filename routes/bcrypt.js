@@ -3,9 +3,7 @@ const bcrypt = require('bcryptjs')
 
 async function hashPassword(plainPassword) {
   try {
-    const saltRounds = 12 // Higher = more secure, but slower
-    const salt = await bcrypt.genSalt(saltRounds)
-    const hash = await bcrypt.hash(plainPassword, salt)
+    const hash = await bcrypt.hash(plainPassword, 12)
     return hash
   } catch (err) {
     console.error('Hashing failed (bcryptjs):', err)
