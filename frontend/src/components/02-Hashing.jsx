@@ -20,7 +20,7 @@ export default function Hashing() {
       <h2>Hashing</h2>
       <form>
         <div>
-          <input ref={inputRef} placeholder='type something' />
+          <input ref={inputRef} placeholder='Enter text' />
           <button onClick={onHash}>Hash It!</button>
         </div>
       </form>
