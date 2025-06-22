@@ -15,11 +15,11 @@ let sessionConfig = {
   secret: 'keep it secret, keep it safe',
   cookie: {
     maxAge: 1000 * 60,
-    secure: false,
+    secure: process.env.RENDER ? true : false,
     httpOnly: false,
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 }
 
 app.use(session(sessionConfig))
