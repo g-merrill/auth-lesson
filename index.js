@@ -6,6 +6,7 @@ const chalk = require('chalk')
 
 const authRouter = require('./routes/auth')
 const todosRouter = require('./routes/todos')
+const cookieRouter = require('./routes/cookie')
 
 const app = express()
 app.use(express.json())
@@ -22,8 +23,9 @@ let sessionConfig = {
   saveUninitialized: false,
 }
 
-app.set('trust proxy', 1) // to deploy to render
+app.set('trust proxy', 1) // works alongside "secure" cookie setting
 app.use(session(sessionConfig))
+app.use(cookieRouter)
 app.use(authRouter)
 app.use(todosRouter)
 

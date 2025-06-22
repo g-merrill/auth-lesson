@@ -8,30 +8,37 @@ let users = []
 
 router.post('/api/auth/register', async (req, res, next) => {
   const { username, password: plainPassword } = req.body
-  if (!users.find(u => u.username === username)) {
+  if (users.find(u => u.username === username)) {
+    next({ status: 409, message: 'Username taken' })
+  } else {
     const hash = await hashPassword(plainPassword)
     const newUser = { id: getId(), username, password: hash }
     users.push(newUser)
     res.json({ message: `Hey ${username}, you registered successfully` })
-  } else {
-    next({ status: 409, message: 'Username taken' })
   }
 })
 
 router.post('/api/auth/login', async (req, res, next) => {
   const { username, password: plainPassword } = req.body
   const user = users.find(u => u.username === username)
-  if (!user) {
+  if (!user || !(await verifyPassword(user.password, plainPassword))) {
     next({ status: 401, message: 'Invalid credentials' })
   } else {
-    const isValid = await verifyPassword(user.password, plainPassword)
-    if (isValid) {
-      req.session.user = user
-      res.json({ message: `Welcome back ${username}, have a cookie...` })
-    } else {
-      next({ status: 401, message: 'Invalid credentials' })
-    }
+    req.session.user = user
+    res.json({ message: `Welcome back ${username}, have a cookie...` })
   }
+})
+
+router.post('/api/auth/logout', (req, res, next) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.log('Error destroying session:', err)
+      next({ message: 'Logout failed' })
+    } else {
+      res.clearCookie('sessionId')
+      res.json({ message: 'Logged out' })
+    }
+  })
 })
 
 // Error handling middleware

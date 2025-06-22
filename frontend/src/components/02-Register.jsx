@@ -27,8 +27,9 @@ export default function Register() {
       <form onSubmit={onSubmit}>
         <input ref={userRef} />
         <input ref={passRef} />
-        <button name="register">register</button>
-        <button name="login">login</button>
+        <button name="register">Rgister</button>
+        <button name="login">Login</button>
+        <button name="logout">Logout</button>
       </form>
     </div>
   )
