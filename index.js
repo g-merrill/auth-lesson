@@ -1,7 +1,7 @@
 const path = require('path')
 const express = require('express')
 const { createProxyMiddleware } = require('http-proxy-middleware')
-const registerRouter = require('./auth/register')
+const authRouter = require('./auth/auth')
 const chalk = require('chalk')
 
 const app = express()
@@ -9,7 +9,7 @@ app.use(express.json())
 
 const PORT = process.env.PORT || 9000
 
-app.use(registerRouter)
+app.use(authRouter)
 
 let todos = [
   { id: 1, label: "Refactor the refactor of the refactor", completed: false },
