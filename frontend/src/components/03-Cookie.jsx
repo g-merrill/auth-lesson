@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Cookie() {
   const [rawCookie, setRawCookie] = useState('')
@@ -12,3 +12,4 @@ export default function Cookie() {
     </div>
   )
 }
+
