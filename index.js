@@ -22,6 +22,7 @@ let sessionConfig = {
   saveUninitialized: false,
 }
 
+app.set('trust proxy', 1) // to deploy to render
 app.use(session(sessionConfig))
 app.use(authRouter)
 app.use(todosRouter)
