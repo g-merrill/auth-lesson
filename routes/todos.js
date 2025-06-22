@@ -9,21 +9,13 @@ let todos = [
 ]
 
 router.get('/api/todos', (req, res, next) => {
-  if (req.session.user) {
-    res.json({ message: "📝 Here are your todos", data: todos })
-  } else {
-    next({ status: 401, message: "You can't have them. Please log in!" })
-  }
+  res.json({ message: "📝 Here are your todos", data: todos })
 })
 
 router.delete('/api/todos/:id', (req, res, next) => {
-  if (req.session.user) {
-    const { id } = req.params
-    todos = todos.filter(todo => todo.id != id)
-    res.json({ message: "💪 Good job getting things done!", data: todos })
-  } else {
-    next({ status: 401, message: "You can't touch them. Please log in!" })
-  }
+  const { id } = req.params
+  todos = todos.filter(todo => todo.id != id)
+  res.json({ message: "💪 Good job getting things done!", data: todos })
 })
 
 module.exports = router
