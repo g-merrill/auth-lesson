@@ -15,7 +15,7 @@ let sessionConfig = {
   name: 'sessionId',
   secret: 'keep it secret, keep it safe',
   cookie: {
-    maxAge: 1000 * 60,
+    maxAge: 1000 * 60 * 5,
     secure: process.env.RENDER ? true : false,
     httpOnly: false,
   },
