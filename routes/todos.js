@@ -9,10 +9,12 @@ let todos = [
 ]
 
 router.get('/api/todos', (req, res, next) => {
+  // prevent unauthenticated access
   res.json({ message: "📝 Here are your todos", data: todos })
 })
 
 router.delete('/api/todos/:id', (req, res, next) => {
+  // prevent unauthenticated access
   const { id } = req.params
   todos = todos.filter(todo => todo.id != id)
   res.json({ message: "💪 Good job getting things done!", data: todos })
