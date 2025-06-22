@@ -91,3 +91,8 @@ button, input {
 input {
   width: 130px;
 }
+
+.cookie-count {
+  color: rgb(162, 105, 0);
+  font-size: 1.2rem;
+}
