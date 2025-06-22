@@ -6,8 +6,8 @@ export default function Auth() {
   const passRef = useRef(null)
 
   const onSubmit = evt => {
-    const action = evt.nativeEvent.submitter.name
     evt.preventDefault()
+    const action = evt.nativeEvent.submitter.name
     const username = userRef.current.value
     const password = passRef.current.value
     const register = async () => {
