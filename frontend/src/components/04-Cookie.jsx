@@ -1,10 +1,5 @@
-import { useState, useEffect } from 'react'
-
 export default function Cookie() {
-  const [rawCookie, setRawCookie] = useState('')
-  useEffect(() => {
-    setRawCookie(document.cookie)
-  }, [])
+  const rawCookie = document.cookie
   return (
     <div className='container'>
       <h2>Cookie</h2>
