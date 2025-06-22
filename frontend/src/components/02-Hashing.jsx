@@ -21,7 +21,7 @@ export default function Hashing() {
       <form>
         <div>
           <input ref={inputRef} placeholder='Enter text' />
-          <button onClick={onHash}>Hash It!</button>
+          <button onClick={onHash}>Hash it!</button>
         </div>
       </form>
       {hashes.length > 0 && (
