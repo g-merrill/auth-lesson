@@ -9,7 +9,7 @@ export default function Bcrypt() {
   const handleHash = async evt => {
     evt.preventDefault()
     setLoading(true)
-    const saltRounds = 15
+    const saltRounds = 12
     const result = await bcrypt.hash(inputRef.current.value, saltRounds)
     setHash(result)
     setLoading(false)
