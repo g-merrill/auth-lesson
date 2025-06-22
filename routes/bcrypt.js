@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs')
 
 async function hashPassword(plainPassword) {
   try {
-    const hash = await bcrypt.hash(plainPassword, 12)
+    const hash = await bcrypt.hash(plainPassword, 10)
     return hash
   } catch (err) {
     console.error('Hashing failed (bcryptjs):', err)
