@@ -5,6 +5,7 @@ import Hashing from './components/02-Hashing'
 import Bcrypt from './components/03-Bcrypt'
 import Cookie from './components/04-Cookie'
 import Todos from './components/05-Todos'
+import codepath from './assets/codepath.jpg'
 
 export default function App() {
   return (
@@ -24,6 +25,9 @@ export default function App() {
         <Route path="/bcrypt" element={<Bcrypt />} />
         <Route path="/todos" element={<Todos />} />
       </Routes>
+      <footer>
+        <img src={codepath} alt="codepath logo" width={300} />
+      </footer>
     </>
   )
 }
