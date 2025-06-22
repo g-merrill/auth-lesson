@@ -16,10 +16,14 @@ router.get('/api/todos', (req, res, next) => {
   }
 })
 
-router.delete('/api/todos/:id', (req, res) => {
-  const { id } = req.params
-  todos = todos.filter(todo => todo.id != id)
-  res.json({ message: "💪 Good job getting things done!", data: todos })
+router.delete('/api/todos/:id', (req, res, next) => {
+  if (req.session.user) {
+    const { id } = req.params
+    todos = todos.filter(todo => todo.id != id)
+    res.json({ message: "💪 Good job getting things done!", data: todos })
+  } else {
+    next({ status: 401, message: "You can't touch them. Please log in!" })
+  }
 })
 
 module.exports = router
