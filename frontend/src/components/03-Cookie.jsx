@@ -8,7 +8,7 @@ export default function Cookie() {
   return (
     <div className='container'>
       <h2>Cookie</h2>
-      <h3>{rawCookie}</h3>
+      <h3>{rawCookie || 'count=0'}</h3>
     </div>
   )
 }
