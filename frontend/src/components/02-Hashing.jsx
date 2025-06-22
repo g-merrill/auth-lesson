@@ -6,7 +6,7 @@ export default function Hashing() {
   const inputRef = useRef(null)
 
   useEffect(() => {
-    console.log(md5('this is the end'))
+    console.log('hashing is happening')
   }, [hashes])
 
   const onHash = evt => {
