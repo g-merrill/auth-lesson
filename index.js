@@ -11,6 +11,18 @@ const cookieRouter = require('./routes/cookie')
 const app = express()
 app.use(express.json())
 
+let sessionConfig = {
+  name: 'sessionId',
+  secret: 'keep it secret, keep it safe',
+  cookie: {
+    maxAge: 1000 * 60 * 5,
+    secure: process.env.RENDER ? true : false,
+    httpOnly: false,
+  },
+  resave: false,
+  saveUninitialized: false,
+}
+
 app.use(morgan('dev'))
 app.set('trust proxy', 1) // works alongside "secure" cookie setting
 app.use(cookieRouter)
