@@ -15,8 +15,7 @@ async function hashPassword(plainPassword) {
 async function verifyPassword(plainPassword, hash) {
   try {
     // on valid password return true
-    await bcrypt.compare(plainPassword, hash)
-    return true
+    return await bcrypt.compare(plainPassword, hash)
   } catch (error) {
     // on invalid return false
     
