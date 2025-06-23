@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const session = require('express-session')
 const { createProxyMiddleware } = require('http-proxy-middleware')
 const morgan = require('morgan')
 const chalk = require('chalk')
@@ -12,21 +11,8 @@ const cookieRouter = require('./routes/cookie')
 const app = express()
 app.use(express.json())
 
-let sessionConfig = {
-  name: 'sessionId',
-  secret: 'keep it secret, keep it safe',
-  cookie: {
-    maxAge: 1000 * 60 * 5,
-    secure: process.env.RENDER ? true : false,
-    httpOnly: false,
-  },
-  resave: false,
-  saveUninitialized: false,
-}
-
 app.use(morgan('dev'))
 app.set('trust proxy', 1) // works alongside "secure" cookie setting
-app.use(session(sessionConfig))
 app.use(cookieRouter)
 app.use(authRouter)
 app.use(todosRouter)
