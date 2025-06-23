@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const URL = '/api/todos'
+const URL = `${import.meta.env.VITE_BASE_URL}/api/todos`
 
 export default function Todos() {
   const [todoList, setTodoList] = useState([])
