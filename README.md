@@ -26,3 +26,5 @@ npm run dev
 ## Visit
 
 At `http://localhost:9000`
+
+Check out the `solution` tag with Git to see the finalized code.
