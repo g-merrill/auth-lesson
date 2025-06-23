@@ -16,6 +16,8 @@ Auth Lesson is a full-stack authentication demo project built with Node.js (Expr
 - Logging with Morgan & colored output with Chalk
 - Development and deployment setups (including frontend+backend proxying)
 
+Check out the `solution` tag with Git to see the finalized code.
+
 ## Setup
 
 ```bash
@@ -26,5 +28,3 @@ npm run dev
 ## Visit
 
 At `http://localhost:9000`
-
-Check out the `solution` tag with Git to see the finalized code.
