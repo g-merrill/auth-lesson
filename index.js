@@ -3,6 +3,7 @@ const express = require('express')
 const { createProxyMiddleware } = require('http-proxy-middleware')
 const morgan = require('morgan')
 const chalk = require('chalk')
+const cors = require('cors')
 
 const authRouter = require('./routes/auth')
 const todosRouter = require('./routes/todos')
@@ -10,6 +11,7 @@ const cookieRouter = require('./routes/cookie')
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 let sessionConfig = {
   name: 'sessionId',

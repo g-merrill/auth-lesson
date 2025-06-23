@@ -11,7 +11,7 @@ export default function Auth() {
     const username = userRef.current.value
     const password = passRef.current.value
     const register = async () => {
-      const res = await fetch(`/api/auth/${action}`, {
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/auth/${action}`, {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
