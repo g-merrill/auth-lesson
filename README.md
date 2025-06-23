@@ -14,7 +14,7 @@ Auth Lesson is a full-stack authentication demo project built with Node.js (Expr
 - Cookie handling
 - Express-based session management
 - Logging with Morgan & colored output with Chalk
-- Development and production-ready setups (including frontend+backend proxying)
+- Development and deployment setups (including frontend+backend proxying)
 
 ## Setup
 
