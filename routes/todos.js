@@ -10,7 +10,11 @@ let todos = [
 
 router.get('/api/todos', (req, res, next) => {
   // prevent unauthenticated access
-  res.json({ message: "📝 Here are your todos", data: todos })
+  if (req.session.user) {
+    res.json({ message: "📝 Here are your todos", data: todos })
+  } else {
+    res.status(401).json({message: 'You cannot access todos'})
+  }
 })
 
 router.delete('/api/todos/:id', (req, res, next) => {

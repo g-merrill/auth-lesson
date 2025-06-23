@@ -25,6 +25,7 @@ router.post("/api/auth/login", async (req, res, next) => {
 	const { username, password: plainPassword } = req.body
 	const user = users.find((u) => u.username === username)
 	if (user && (await verifyPassword(plainPassword, user.password))) {
+    req.session.user = user
 		res.json({ message: `Good to see you again, ${username}` })
 	} else {
 		next({ status: 401, message: "Invalid credentials" })
@@ -32,6 +33,7 @@ router.post("/api/auth/login", async (req, res, next) => {
 })
 
 router.post("/api/auth/logout", (req, res, next) => {
+  req.session.user = null
 	next({ message: "Logout failed" })
 })
 
